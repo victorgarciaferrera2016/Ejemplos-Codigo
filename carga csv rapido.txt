@@ -1,0 +1,12 @@
+import datatable as dt
+import dask.dataframe as dd
+import vaex
+ 
+%%time
+datatable_df = dt.fread(csv_FILENAME).to_pandas()
+ 
+%%time
+dask_df = dd.read_csv(csv_FILENAME).compute()
+ 
+%%time
+vaex_df = vaex.from_csv(csv_FILENAME).to_pandas_df()

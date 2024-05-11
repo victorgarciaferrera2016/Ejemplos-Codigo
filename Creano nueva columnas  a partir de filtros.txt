@@ -1,0 +1,6 @@
+# Creemos subbrupos de edades y calculemos las tasas de conversión en cada caso
+
+# Nueva columna en el dataset: "grupos_edad"
+data.loc[:,'grupos_edad'] = "18-25"
+data.loc[data['age']>60,'grupos_edad'] = ">60"
+data.loc[(data['age']>25)&(data['age']<=60), 'grupos_edad'] = "26-60"

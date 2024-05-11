@@ -1,0 +1,7 @@
+
+# Si todas las comunas son menores a cero
+df_filtrado = df.loc[(df[columnas_numericas] >= 0).all(axis=1)]
+
+
+# Si algunas las comunas son menores a cero
+df_filtrado = df.loc[(df[columnas_numericas] >= 0).any(axis=1)]
