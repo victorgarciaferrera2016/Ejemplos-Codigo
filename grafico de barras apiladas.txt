@@ -1,0 +1,10 @@
+grouped = df_train.groupby(['Sepssis', 'Insurance'], as_index=False)['ID'].count()
+# Pivot the data to have Sepsis as columns and Insurance as index
+pivot = grouped.pivot(index='Insurance', columns='Sepssis', values='ID')
+# Plotting
+pivot.plot(kind='bar', stacked=True, figsize=(8, 5))
+# Setting labels and title
+plt.xlabel('Insurance')
+plt.ylabel('Count')
+plt.title('Sepsis and Insurance Counts')
+plt.show()

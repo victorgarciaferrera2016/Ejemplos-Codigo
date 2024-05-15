@@ -1,0 +1,20 @@
+
+## validando hiptesis de correlación entre variable target sepssis y bmi (columna de una tabla llamda Body Mass Index)
+
+import scipy.stats as stats
+
+# Select the BMI and sepsis columns from the dataset
+bmi = df['Body Mass Index']
+sepsis = (df['Sepssis'] == 'Positive').astype(bool).astype(int)
+
+# Perform correlation analysis
+correlation, p_value = stats.pearsonr(bmi, sepsis)
+
+# Print the correlation coefficient and p-value
+print("Correlation coefficient:", correlation)
+print("P-value:", p_value)
+
+if p_value > 0.05:
+    print('Fail to reject the null hypothesis. ')
+else:
+    print('Reject the null hypothesis')
